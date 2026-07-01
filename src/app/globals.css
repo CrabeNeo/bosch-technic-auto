@@ -1,26 +1,96 @@
 @import "tailwindcss";
 
 :root {
+  --primary: #c41e3a;
+  --secondary: #1a1a1a;
+  --accent: #f59e0b;
   --background: #ffffff;
-  --foreground: #171717;
+  --text: #333333;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  color: var(--text);
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+.footer-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 3rem;
+  text-align: center;
+}
+
+@media (max-width: 1023px) {
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer-grid {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}
+
+.footer-grid .footer-contact-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.footer-grid .footer-schedule-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+/* Fix AnimatedSection */
+.animated-section {
+  display: block !important;
+  width: 100% !important;
+}
+
+.btn-red:hover {
+  background-color: #b91c1c !important;
 }
