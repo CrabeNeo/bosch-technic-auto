@@ -26,8 +26,10 @@ jobs:
           node-version: 20
           cache: npm
 
+      # npm install (et non npm ci) : le lockfile généré sous macOS n'inclut pas
+      # les deps optionnelles Linux (@emnapi/*) que le runner Ubuntu réclame.
       - name: Install dependencies
-        run: npm ci
+        run: npm install --no-audit --no-fund
 
       - name: Build (static export)
         run: npm run build
